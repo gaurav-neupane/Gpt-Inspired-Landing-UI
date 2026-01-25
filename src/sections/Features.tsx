@@ -1,71 +1,72 @@
-import { cn } from "@/lib/cn";
+import brainstrom from "@/assets/Brainstorm.jpg";
+import summarize from "@/assets/Summarize.jpg";
+import generate from "@/assets/Generate.jpg";
 
-const FEATURES = [
+import { cn } from "@/lib/cn";
+import BentoGrid from "@/components/layout/BentoGrid";
+
+const features = [
   {
-    title: "Built-in Reasoning",
-    description:
-      "Advanced thinking capabilities that break down complex problems and deliver expert-level answers with clarity.",
+    description: "Writes, brainstorms, edits, and explores ideas with you",
+    img: brainstrom,
   },
   {
-    title: "Faster Than Ever",
     description:
-      "Optimized inference and architecture improvements make GPT-5.2 significantly faster and more responsive.",
+      "Summarize meetings. Find new insights. Increase productivity.",
+    img: summarize,
   },
   {
-    title: "Multimodal Intelligence",
     description:
-      "Understand and generate text, images, and structured data seamlessly in a single model.",
-  },
-  {
-    title: "Higher Reliability",
-    description:
-      "Improved factual accuracy, reduced hallucinations, and better alignment across domains.",
-  },
-  {
-    title: "Developer-First API",
-    description:
-      "Consistent outputs, better tool use, and predictable behavior designed for production systems.",
-  },
-  {
-    title: "Scales With You",
-    description:
-      "From quick prompts to enterprise workloads, GPT-5.2 adapts effortlessly to your needs.",
+      "Generate and debug code. Automate repetitive tasks. Learn new APIs.",
+    img: generate,
   },
 ];
 
 export default function Features() {
   return (
-    <section
-      id="features"
-      className="relative mx-auto max-w-7xl px-6 py-6"
-    >
+    <section id="features" className="relative mx-auto max-w-7xl py-6">
       {/* Section header */}
-      <div className="mb-16 text-center">
+      <div className="mb-12 text-center">
         <p className="max-w-xl mx-auto text-muted-foreground text-lg">
-          Here’s how we make it effortless.
+          Here's how we make it effortless.
         </p>
       </div>
-
+      <div className="py-10">
       {/* Features grid */}
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {FEATURES.map((feature) => (
-          <div
-            key={feature.title}
-            className={cn(
-              "rounded-2xl border border-border p-6",
-              "bg-background/60 backdrop-blur",
-              "transition hover:shadow-lg hover:-translate-y-1"
-            )}
-          >
-            <h3 className="text-xl font-semibold mb-2">
-              {feature.title}
-            </h3>
-            <p className="text-muted-foreground">
-              {feature.description}
+      {features.map((item, index) => (
+        <div
+          key={index}
+          className={cn(
+            "grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-16 p-10",
+            "md:[&:nth-child(even)>img]:order-2",
+          )}
+        >
+          {/* Image */}
+          <img
+            src={item.img}
+            alt={item.description}
+            className="w-full rounded-xl shadow-md"
+          />
+          {/* Text */}
+          <div>
+            <p className="text-muted-foreground text-center text-lg">
+              {item.description
+                .split(".")
+                .filter(Boolean)
+                .map((line, i) => (
+                  <p key={i}>{line.trim()}.</p>
+                ))}
             </p>
           </div>
-        ))}
+        </div>
+      ))}
       </div>
+      <div className="mb-12 text-center">
+        <p className="max-w-xl mx-auto text-muted-foreground text-lg">
+          And there's more to explore.
+        </p>
+      </div>
+      <BentoGrid/>
     </section>
   );
 }
