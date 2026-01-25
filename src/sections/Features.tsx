@@ -37,19 +37,12 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="relative mx-auto max-w-7xl px-6 py-24"
+      className="relative mx-auto max-w-7xl px-6 py-6"
     >
       {/* Section header */}
       <div className="mb-16 text-center">
-        <p className="text-sm font-medium text-primary/80 mb-2">
-          Capabilities
-        </p>
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-          Designed to Think. Built to Perform.
-        </h2>
-        <p className="mt-4 max-w-2xl mx-auto text-muted-foreground text-lg">
-          GPT-5.2 combines speed, reasoning, and reliability to deliver
-          intelligence you can trust.
+        <p className="max-w-xl mx-auto text-muted-foreground text-lg">
+          Here’s how we make it effortless.
         </p>
       </div>
 

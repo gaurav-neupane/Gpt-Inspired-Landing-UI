@@ -1,27 +1,29 @@
 import { cn } from "@/lib/cn";
-import Logo from "@/assets/openai.svg?react";
 import { useState } from "react";
 import { TextAlignJustify } from "lucide-react";
 import { X } from "lucide-react";
+import Logo from "../ui/Logo";
 
 const Nav_Items = [
-  { label: "About", href: "#about" },
+  { label: "Home", href: "#home" },
   { label: "Features", href: "#features" },
   { label: "Use Cases", href: "#use-cases" },
   { label: "Pricing", href: "#pricing" },
-] as const;
+  { label: "Testimonial", href: "#testimonial" },
+];
 
 export const Navbar = () => {
   const [open, setOpen] = useState<boolean>(false);
 
   return (
-    <header className="fixed top-0 z-40 w-full border-b border-gray-100 shadow-sm h-14 bg-white">
-      <nav className="flex justify-between px-8 items-center h-full">
-        <Logo className="h-6 w-auto" />
+    <>
+    <header className="fixed top-0 z-50 w-full">
+      <nav className="flex justify-between px-6 items-center border-b border-gray-100 shadow-sm h-14 bg-white">
+        <Logo />
         <ul className="hidden lg:flex gap-16">
           {Nav_Items.map((items) => (
             <li key={items.href}>
-              <a href={items.href}>{items.label}</a>
+              <a href={items.href} className="hover:">{items.label}</a>
             </li>
           ))}
         </ul>
@@ -33,7 +35,7 @@ export const Navbar = () => {
               "border border-gray-400 text-[#666666]",
               "transition-transform duration-200 ease-out",
               "hover:scale-105 hover:border-gray-600",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-800/40"
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-800/40",
             )}
           >
             Sign Up
@@ -46,23 +48,32 @@ export const Navbar = () => {
           {open ? <X /> : <TextAlignJustify />}
         </button>
       </nav>
+    </header>
       <div
         id="mobile-menu"
         className={cn(
-          "md:hidden overflow-hidden transition-all duration-300 bg-white",
-          open ? "max-h-96" : "max-h-0"
+          "fixed inset-x-0 z-40 top-14 bg-white/30 backdrop-blur-xl",
+          "h-full",
+          "transition-transform duration-300 ease-in-out",
+          open ? "translate-y-0" : "-translate-y-full",
         )}
       >
-        <ul className="flex flex-col gap-8 px-4 py-4">
+        <ul className="flex h-full flex-col gap-8 px-6 py-8">
           {Nav_Items.map((items) => (
             <li key={items.href}>
-            <a href={items.href} onClick={()=>setOpen(false)}  className="block text-muted-foreground hover:text-foreground" >{items.label}</a>
+              <a
+                href={items.href}
+                onClick={() => setOpen(false)}
+                className="block text-xl"
+              >
+                {items.label}
+              </a>
             </li>
           ))}
           <li>
             <a
               href="/signup"
-              className="block rounded-md text-black"
+              className="block rounded-md text-black text-xl"
               onClick={() => setOpen(false)}
             >
               Sign up
@@ -70,6 +81,6 @@ export const Navbar = () => {
           </li>
         </ul>
       </div>
-    </header>
+      </>
   );
 };
