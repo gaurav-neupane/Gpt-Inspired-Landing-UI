@@ -53,15 +53,15 @@ const adv_features = [
 
 export default function BentoGrid(){
   return (
-      <div className= "grid grid-cols-1 md:grid-cols-4 grid-rows-6 items-center justify-center w-full gap-8 p-18">
-        <div className="bg-black/10 h-40 w-full"></div>
-        <div className="bg-black/10 h-full w-full"></div>
-        <div className="bg-black/10 h-full w-full"></div>
-        <div className="bg-black/10 h-full w-full"></div>
-        <div className="bg-black/10 h-full w-full"></div>
-        <div className="bg-black/10 h-full w-full"></div>
-        <div className="bg-black/10 h-full w-full"></div>
-        <div className="bg-black/10 h-full w-full"></div>
+      <div className= "grid grid-cols-1 md:grid-cols-5 grid-rows-8 items-center justify-center gap-10 p-10">
+        <div className="col-span-3 row-span-2 bg-black/10 h-95 w-full"></div>
+        <div className="col-span-2 row-span-3 bg-black/10 h-full w-full"></div>
+        <div className="col-span-3 row-span-2 bg-black/10 h-full w-full"></div>
+        <div className="col-span-2 row-span-2 bg-black/10 h-full w-full"></div>
+        <div className="col-span-3 row-span-1 bg-black/10 h-full w-full"></div>
+        <div className="col-span-3 row-span-3 bg-black/10 h-full w-full"></div>
+        <div className="col-span-2 bg-black/10 h-full w-full"></div>
+        <div className="col-span-2 row-span-2 bg-black/10 h-full w-full"></div>
       </div>
   )
 }

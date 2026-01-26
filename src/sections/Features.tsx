@@ -24,7 +24,7 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="relative mx-auto max-w-7xl py-6">
+    <section id="features" className="flex flex-col justify-center relative mx-auto max-w-full py-6 px-10 ">
       {/* Section header */}
       <div className="mb-12 text-center">
         <p className="max-w-xl mx-auto text-muted-foreground text-lg">
