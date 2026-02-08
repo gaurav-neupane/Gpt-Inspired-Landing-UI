@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar"
 import Hero from "./sections/Hero"
 import Features from "./sections/Features"
+import UseCases from "./sections/UseCases"
 
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <Features/>
+        <Features />
+        <UseCases/>
       </main>
     </>
   )

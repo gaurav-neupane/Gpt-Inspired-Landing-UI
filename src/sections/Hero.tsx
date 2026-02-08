@@ -3,7 +3,7 @@ import { cn } from "@/lib/cn";
 export default function Hero() {
   return (
     <section
-      id="hero"
+      id="home"
       className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center"
     >
       {/* Title */}
